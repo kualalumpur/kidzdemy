@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  datetime: 2016-09-26 12:58:00
+  image: MyString
+  venue: MyString
+  type: 
+  category_id: 1
+  user_id: 1
+  ticket_limit: 1
+
+two:
+  title: MyString
+  description: MyText
+  datetime: 2016-09-26 12:58:00
+  image: MyString
+  venue: MyString
+  type: 
+  category_id: 1
+  user_id: 1
+  ticket_limit: 1
