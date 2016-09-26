@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.datetime :datetime
       t.string :image
       t.string :venue
-      t.string :type
+      t.integer :type
       t.integer :category_id
       t.integer :user_id
       t.integer :ticket_limit
