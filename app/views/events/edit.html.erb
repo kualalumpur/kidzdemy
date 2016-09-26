@@ -1,0 +1,19 @@
+<%= form_for(@event, url: event_path(@event), html: { id: "event-update-form" }) do |f| %>
+  <h1 class="text-center">
+    Create Event
+  </h1>
+
+  <div class="form-group">
+    <h4> <%= f.label :title_field, "Title" %> </h4>
+    <%= f.text_field :title, required: true, id: "event_title_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "Description" %> </h4>
+    <%= f.text_field :description, id: "event_description_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group text-center">
+    <%= f.submit "Update Event", class: "btn btn-success btn-lg" %>
+  </div>
+<% end %>

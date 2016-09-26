@@ -1,0 +1,13 @@
+<h1><%= @event.title %></h1>
+
+<div class="event">
+  <h3><%= event.title %></h3>
+  <h5><%= event.description %></h5>
+  <h5><%= event.datetime %></h5>
+  <h5><%= event.venue %></h5>
+  <h5><%= event.image %></h5>
+  <h5><%= event.type %></h5>
+  <h5><%= event.ticket_limit %></h5>
+  <h5><%= event.user_id %></h5>
+  <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Delete?" } %>
+</div>

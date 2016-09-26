@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem "figaro"
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  # Debugging
+  gem 'pry'
 end
 
 group :development do
