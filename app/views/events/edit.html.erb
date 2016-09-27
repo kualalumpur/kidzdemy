@@ -1,6 +1,6 @@
 <%= form_for(@event, url: event_path(@event), html: { id: "event-update-form" }) do |f| %>
   <h1 class="text-center">
-    Create Event
+    Edit Event
   </h1>
 
   <div class="form-group">
@@ -11,6 +11,19 @@
   <div class="form-group">
     <h4> <%= f.label :text_field, "Description" %> </h4>
     <%= f.text_field :description, id: "event_description_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4 class="text-center"> Event Image </h4>
+    <div id="preview-image">
+      <% if @event.image? %>
+      <%= image_tag @event.image, class: "img-settings img-responsive center-block" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.file_field :image, id: "event_image_field", class: 'form-control image-uploader' %>
   </div>
 
   <div class="form-group text-center">

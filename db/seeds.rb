@@ -10,11 +10,11 @@ Category.find_or_create_by(name: 'Programming', description: 'Computer programmi
 Category.find_or_create_by(name: 'App Development', description: 'Mobile application development is a term used to denote the act or process by which application software is developed for mobile devices, such as personal digital assistants, enterprise digital assistants or mobile phones.')
 
 5.times do |i|
-  User.find_or_create_by(email: "user#{i+1}@email.com", password: "password")
+  User.create(email: "user#{i+1}@email.com", password: "password")
 end
 
 3.times do |i|
   8.times do |j|
-  Item.create(title: "Event ##{j+1} Catchy Title", description: "This is an event description. We are trying to accommodate super long description, will have to check later if it supports HTML or just plain text", category_id: i+1)
+  Event.create(title: "Event ##{j+1} Catchy Title", description: "This is an event description. We are trying to accommodate super long description, will have to check later <br /><br />if it supports HTML or just plain text", image: "9b3d35b2-621a-4191-8026-36b80fecea42-lego_robotics.jpeg", category_id: i+1, user_id: i+1)
   end
 end

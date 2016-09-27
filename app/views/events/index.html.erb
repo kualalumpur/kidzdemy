@@ -1,14 +1,21 @@
 <h1>Events</h1>
-
-<% @events.each do |event| %>
-  <div class="event">
-    <h3><%= link_to event.title, event_path(event) %></h3>
-    <h5><%= event.description %></h5>
-    <h5><%= event.datetime %></h5>
-    <h5><%= event.venue %></h5>
-    <h5><%= event.image %></h5>
-    <h5><%= event.type %></h5>
-    <h5><%= event.ticket_limit %></h5>
-    <h5><%= event.user_id %></h5>
+<div class="container">
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <h3><%= link_to event.title, event_path(event) %></h3>
+        <h5><%= event.description.html_safe %></h5>
+        <h5><%= event.start %></h5>
+        <h5><%= event.venue %></h5>
+        <h4 class="text-center"> Event Image </h4>
+        <% if event.image? %>
+        <%= image_tag event.image, size: '260x180', class: "img-settings img-responsive center-block" %>
+        <% else %>
+        <%= image_tag "lego_robotics.jpeg", size: '260x180', class: "img-settings img-responsive center-block" %>
+        <% end %>
+        <h5><%= event.ticket_limit %></h5>
+        <h5><%= event.user_id %></h5>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
