@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 ruby "2.3.1"
-gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'carrierwave'
 gem "mini_magick"
 gem "figaro"
 gem 'devise'
