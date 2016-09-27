@@ -10,11 +10,11 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @categories = Category.all
   end
 
   def create
     @event = Event.new(event_params)
-    @categories = Category.all
     if @event.save
       flash[:success] = "You've created a new event."
       redirect_to events_path
@@ -26,6 +26,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find_by(id: params[:id])
+    @categories = Category.all
   end
 
   def update
@@ -54,7 +55,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :datetime, :image, :venue, :type)
+    params.require(:event).permit(:title, :description, :image, :venue, :start, :end, :organizer_name, :organizer_description, :category_id, :user_id)
   end
 
 end

@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20160927050611) do
     t.string   "organizer_description"
     t.integer  "category_id"
     t.integer  "user_id"
-    t.integer  "ticket_limit"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end

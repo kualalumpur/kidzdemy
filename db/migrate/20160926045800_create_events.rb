@@ -11,7 +11,6 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.string :organizer_description
       t.integer :category_id
       t.integer :user_id
-      t.integer :ticket_limit
 
       t.timestamps
     end

@@ -1,14 +1,18 @@
 <h1><%= @event.title %></h1>
 
 <div class="event">
+  <% if @event.image? %>
+  <%= image_tag @event.image, size: '260x180', class: "img-settings img-responsive center-block" %>
+  <% else %>
+  <%= image_tag "lego_robotics.jpeg", size: '260x180', class: "img-settings img-responsive center-block" %>
+  <% end %>
   <h3><%= @event.title %></h3>
   <h5><%= @event.description.html_safe %></h5>
-  <h5><%= @event.start %></h5>
-  <h5><%= @event.end %></h5>
+  <h5><%= @event.start.strftime '%Y-%m-%d %H:%M:%S' %></h5>
+  <h5><%= @event.end.strftime '%Y-%m-%d %H:%M:%S' %></h5>
   <h5><%= @event.venue %></h5>
-  <h5><%= @event.image %></h5>
-  <h5><%= @event.ticket_limit %></h5>
-  <h5><%= @event.user_id %></h5>
+  <h5><%= @event.organizer_name %></h5>
+  <h5><%= @event.organizer_description.html_safe %></h5>
   <%= link_to "Edit", edit_event_path(@event) %>
   <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Delete?" } %>
 </div>

@@ -4,13 +4,23 @@
   </h1>
 
   <div class="form-group">
-    <h4> <%= f.label :title_field, "Title" %> </h4>
+    <h4> <%= f.label :text_field, "Event Title" %> </h4>
     <%= f.text_field :title, required: true, id: "event_title_field", class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <h4> <%= f.label :text_field, "Description" %> </h4>
-    <%= f.text_field :description, id: "event_description_field", class: 'form-control' %>
+    <h4> <%= f.label :text_field, "Location" %> </h4>
+    <%= f.text_field :venue, required: true, id: "event_venue_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "Starts" %> </h4>
+    <%= f.datetime_select :start, required: true, id: "event_start_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "Ends" %> </h4>
+    <%= f.datetime_select :end, required: true, id: "event_end_field", class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -24,6 +34,27 @@
 
   <div class="form-group">
     <%= f.file_field :image, id: "event_image_field", class: 'form-control image-uploader' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "Description" %> </h4>
+    <%= f.text_field :description, id: "event_description_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "Event Category" %> </h4>
+    <%= f.collection_select :category_id, @categories, :id, :name, include_blank: false %>
+  </div>
+
+
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "Organizer Name" %> </h4>
+    <%= f.text_field :organizer_name, id: "event_organizer_name_field", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <h4> <%= f.label :text_field, "Organizer Description" %> </h4>
+    <%= f.text_field :organizer_description, id: "event_organizer_description_field", class: 'form-control' %>
   </div>
 
   <div class="form-group text-center">
