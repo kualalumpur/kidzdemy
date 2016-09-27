@@ -4,5 +4,4 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :category
   mount_uploader :image, ImageUploader
-  enum etype: [:free, :paid]
 end
