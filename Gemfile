@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 ruby "2.3.1"
+gem 'rails_admin', '~> 1.0'
 gem 'carrierwave'
 gem "mini_magick"
 gem "figaro"

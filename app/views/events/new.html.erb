@@ -45,7 +45,7 @@
 
 <div class="form-group">
   <h4> <%= f.label :text_field, "Event Category" %> </h4>
-  <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
+  <%= f.collection_select :category_id, @categories, :id, :name, include_blank: false %>
 </div>
 
 
