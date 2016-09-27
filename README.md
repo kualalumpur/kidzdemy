@@ -1,3 +1,3 @@
 
 # kidzdemy
-MaGIC Full Stack Web Development Capstone Project
+Capstone Project for MaGIC Full Stack Web Development Bootcamp
