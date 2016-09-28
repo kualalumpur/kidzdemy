@@ -1,0 +1,62 @@
+.about {
+
+  .container {
+      padding: 80px 120px;
+  }
+
+  .person {
+    // border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 80%;
+}
+
+  .person:hover {
+    // border-color: #fed136;
+    opacity: 0.3;
+}
+
+.carousel,
+.item,
+.active {
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+
+.imgWrap {
+  position: relative;
+  // height: 200px;
+  // width: 257px;
+}
+
+.imgDescription {
+  position: relative;
+  // text-align: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // background: rgba(29, 106, 154, 0.72);
+  color: #000;
+
+  visibility: hidden;
+  opacity: 0;
+}
+
+.imgWrap:hover .imgDescription {
+  visibility: visible;
+  opacity: 1;
+}
+
+.title-heading {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+}

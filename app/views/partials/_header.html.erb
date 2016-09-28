@@ -1,5 +1,5 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	<div class="container">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -8,43 +8,49 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/">Kidzdemy</a>
+			<a class="navbar-brand" href="/" style="font-family: Baloo Bhai; color: #fed136; font-size: 25px">Kidzdemy</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li>
-					<a href="/about">About</a>
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Categories <span class="caret"></span></a>
+					<a href="/about" class = "header-title">About</a>
+					<!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-family: Montserrat; font-size: 16px"> Categories <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="/categories/1">Coding</a></li>
-							<li><a href="/categories/2">Robotics</a></li>
-							<li><a href="/categories/3">Science and Tech</a></li>
+							<li><a href="/events" class = "header-title">Coding</a></li>
+							<li><a href="/events" class = "header-title">Robotics</a></li>
+							<li><a href="/events" class = "header-title">Science and Tech</a></li>
 						</ul>
-					</li>
+					</li> -->
 				</li>
 				<li>
-					<a href="/books">All Events</a>
+					<a href="/events" class = "header-title">Browse Events</a>
 				</li>
 			</ul>
-
 
 			<ul class="nav navbar-nav navbar-right">
+
+				<% if current_user %>
 				<li>
-					<%= link_to(new_user_session_path) do %>
-					<span class="glyphicon glyphicon-log-in"></span>
-					Login
-					<% end %>
+					<%= link_to current_user.email, edit_user_registration_path, class: "header-title" %>
 				</li>
 
 				<li>
-					<%= link_to(destroy_user_session_path, method: :delete) do %>
-					<span class="glyphicon glyphicon-log-out"></span>
-					Logout
-					<% end %>
+					<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "header-title" %>
 				</li>
+
+				<% else %>
+
+				<li>
+					<%= link_to "Register", new_user_registration_path, class: "header-title" %>
+				</li>
+
+				<li>
+					<%= link_to "Login", new_user_session_path, class: "header-title" %>
+				</li>
+				<% end %>
+
 			</ul>
-
 		</div>
 	</div>
 </nav>

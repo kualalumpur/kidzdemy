@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 
   root to: 'landing#index'
+  get :about, to: 'static_pages#about'
 
 
 end
