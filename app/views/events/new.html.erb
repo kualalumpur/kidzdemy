@@ -26,9 +26,7 @@
 <div class="form-group">
   <h4 class="text-center"> Event Image </h4>
   <div id="preview-image">
-    <% if @event.image? %>
-    <%= image_tag @event.image, class: "img-settings img-responsive center-block" %>
-    <% end %>
+    <%= image_tag "graybox.jpg", class: "img-settings img-responsive center-block" %>
   </div>
 </div>
 
@@ -45,7 +43,7 @@
 
 <div class="form-group">
   <h4> <%= f.label :text_field, "Event Category" %> </h4>
-  <%= f.collection_select :category_id, @categories, :id, :name, include_blank: true %>
+  <%= f.collection_select :category_id, @categories, :id, :name, include_blank: false %>
 </div>
 
 
