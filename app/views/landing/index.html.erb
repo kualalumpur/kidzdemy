@@ -1,5 +1,5 @@
 <div class="landing">
-  <div class="container">
+  <div class="container-fluid">
 
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
       <!-- Indicators -->
@@ -12,21 +12,24 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner">
         <div class="item active">
-          <%= image_tag("image1.jpg") %>
+          <%= image_tag("slide1.jpg") %>
           <div class="carousel-caption">
-          	<h3>Caption Text</h3>
+            <h3>Caption Text</h3>
+            <p>The atmosphere in New York is lorem ipsum.</p>
           </div>
         </div>
         <div class="item">
-          <%= image_tag("image2.jpg") %>
+          <%= image_tag("slide2.jpg") %>
           <div class="carousel-caption">
-          	<h3>Caption Text</h3>
+            <h3>Caption Text</h3>
+            <p>The atmosphere in New York is lorem ipsum.</p>
           </div>
         </div>
         <div class="item">
-          <%= image_tag("image1.jpg") %>
+          <%= image_tag("slide3.jpg") %>
           <div class="carousel-caption">
-          	<h3>Caption Text</h3>
+            <h3>Caption Text</h3>
+            <p>The atmosphere in New York is lorem ipsum.</p>
           </div>
         </div>
       </div>
@@ -41,171 +44,194 @@
     </div> <!-- Carousel -->
 
     <hr>
-</div>
-    <!-- Title -->
-    <div class="container">
-
-    <div class="row">
-      <div class="col-lg-12">
-        <h3>Events for you</h3>
-      </div>
-    </div>
-    <!-- /.row -->
-
-    <!-- Page Features -->
-    <div class="row text-center">
-
-      <div class="col-md-4 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h3 class="hellome">Bestsellers</h3>
-            <p>This year's top sellers</p>
-            <p>
-              <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h3>What's Trending</h3>
-            <p>Hot books that are flying off our shelves</p>
-            <p>
-              <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h3>Just Arrived</h3>
-            <p>These books have just arrived on our shelves</p>
-            <p>
-              <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-    </div>
   </div>
 
-  <!-- Portfolio Grid Section -->
-  <section id="portfolio" class="bg-light-gray">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Category</h2>
-          <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control SearchBar" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-defaul SearchButton" type="button">
+              <span class=" glyphicon glyphicon-search SearchIcon" ></span>
+            </button>
+          </span>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <%= link_to "/index", class: "portfolio-link" do %>
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="fa fa-code fa-3x"></i>
-            </div>
-          </div>
-          <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
-          <% end %>
-          <div class="portfolio-caption">
-            <h4>Robotic workshop</h4>
-            <p class="text-muted">Build and program Lego robots</p>
-          </div>
-        </div>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+</div>
 
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <%= link_to "/index", class: "portfolio-link" do %>
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="fa fa-code fa-3x"></i>
-            </div>
-          </div>
-          <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
-          <% end %>
-          <div class="portfolio-caption">
-            <h4>Coding workshop</h4>
-            <p class="text-muted">Create games with Scratch & Python</p>
-          </div>
-        </div>
 
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <%= link_to "/index", class: "portfolio-link" do %>
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="fa fa-code fa-3x"></i>
-            </div>
-          </div>
-          <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
-          <% end %>
-          <div class="portfolio-caption">
-            <h4>Mobile App</h4>
-            <p class="text-muted">Create your Minecraf Mod</p>
-          </div>
-        </div>
 
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <%= link_to "/index", class: "portfolio-link" do %>
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="fa fa-code fa-3x"></i>
-            </div>
-          </div>
-          <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
-          <% end %>
-          <div class="portfolio-caption">
-            <h4>Arduino workshop</h4>
-            <p class="text-muted">First steps with Arduino</p>
-          </div>
-        </div>
 
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <%= link_to "/index", class: "portfolio-link" do %>
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="fa fa-code fa-3x"></i>
-            </div>
-          </div>
-          <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
-          <% end %>
-          <div class="portfolio-caption">
-            <h4>Electronic workshop</h4>
-            <p class="text-muted">Intelligent objects with MakeyMakey</p>
-          </div>
-        </div>
 
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <%= link_to "/index", class: "portfolio-link" do %>
-          <div class="portfolio-hover">
-            <div class="portfolio-hover-content">
-              <i class="fa fa-code fa-3x"></i>
-            </div>
-          </div>
-          <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
-          <% end %>
-          <div class="portfolio-caption">
-            <h4>3D workshop</h4>
-            <p class="text-muted">Discover 3D printing & design</p>
-          </div>
+
+<!-- Title -->
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Events for you</h3>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Page Features -->
+  <div class="row text-center">
+
+    <div class="col-md-4 col-sm-6 hero-feature">
+      <div class="thumbnail">
+        <img src="http://placehold.it/800x500" alt="">
+        <div class="caption">
+          <h3 class="hellome">Bestsellers</h3>
+          <p>This year's top sellers</p>
+          <p>
+            <a href="#" class="btn btn-primary">Get Ticket</a> <a href="#" class="btn btn-default">More Info</a>
+          </p>
         </div>
-      </div>
       </div>
     </div>
-  </section>
+
+    <div class="col-md-4 col-sm-6 hero-feature">
+      <div class="thumbnail">
+        <img src="http://placehold.it/800x500" alt="">
+        <div class="caption">
+          <h3>What's Trending</h3>
+          <p>Hot books that are flying off our shelves</p>
+          <p>
+            <a href="#" class="btn btn-primary">Get Ticket</a> <a href="#" class="btn btn-default">More Info</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 hero-feature">
+      <div class="thumbnail">
+        <img src="http://placehold.it/800x500" alt="">
+        <div class="caption">
+          <h3>Just Arrived</h3>
+          <p>These books have just arrived on our shelves</p>
+          <p>
+            <a href="#" class="btn btn-primary">Get Ticket</a> <a href="#" class="btn btn-default">More Info</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Portfolio Grid Section -->
+<section id="portfolio" class="bg-light-gray">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Category</h2>
+        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <%= link_to "/index", class: "portfolio-link" do %>
+        <div class="portfolio-hover">
+          <div class="portfolio-hover-content">
+            <i class="fa fa-code fa-3x"></i>
+          </div>
+        </div>
+        <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
+        <% end %>
+        <div class="portfolio-caption">
+          <h4>Robotic workshop</h4>
+          <p class="text-muted">Build and program Lego robots</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <%= link_to "/index", class: "portfolio-link" do %>
+        <div class="portfolio-hover">
+          <div class="portfolio-hover-content">
+            <i class="fa fa-code fa-3x"></i>
+          </div>
+        </div>
+        <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
+        <% end %>
+        <div class="portfolio-caption">
+          <h4>Coding workshop</h4>
+          <p class="text-muted">Create games with Scratch & Python</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <%= link_to "/index", class: "portfolio-link" do %>
+        <div class="portfolio-hover">
+          <div class="portfolio-hover-content">
+            <i class="fa fa-code fa-3x"></i>
+          </div>
+        </div>
+        <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
+        <% end %>
+        <div class="portfolio-caption">
+          <h4>Mobile App</h4>
+          <p class="text-muted">Create your Minecraf Mod</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <%= link_to "/index", class: "portfolio-link" do %>
+        <div class="portfolio-hover">
+          <div class="portfolio-hover-content">
+            <i class="fa fa-code fa-3x"></i>
+          </div>
+        </div>
+        <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
+        <% end %>
+        <div class="portfolio-caption">
+          <h4>Arduino workshop</h4>
+          <p class="text-muted">First steps with Arduino</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <%= link_to "/index", class: "portfolio-link" do %>
+        <div class="portfolio-hover">
+          <div class="portfolio-hover-content">
+            <i class="fa fa-code fa-3x"></i>
+          </div>
+        </div>
+        <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
+        <% end %>
+        <div class="portfolio-caption">
+          <h4>Electronic workshop</h4>
+          <p class="text-muted">Intelligent objects with MakeyMakey</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <%= link_to "/index", class: "portfolio-link" do %>
+        <div class="portfolio-hover">
+          <div class="portfolio-hover-content">
+            <i class="fa fa-code fa-3x"></i>
+          </div>
+        </div>
+        <%= image_tag("kidcode.jpg", class: 'img-responsive') %>
+        <% end %>
+        <div class="portfolio-caption">
+          <h4>3D workshop</h4>
+          <p class="text-muted">Discover 3D printing & design</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
 </div>
 
 <script language="JavaScript" type="text/javascript">
-  $(document).ready(function(){
-    $('.carousel').carousel({
-      interval: 3000
-    })
-  });
+$(document).ready(function(){
+  $('.carousel').carousel({
+    interval: 3000
+  })
+});
 </script>
