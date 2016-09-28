@@ -1,0 +1,9 @@
+<h1><%= @ticket.name %></h1>
+
+<div class="ticket">
+  <h3><%= @ticket.ttype %></h3>
+  <h5><%= @ticket.quantity %></h5>
+  <h5><%= number_to_currency(@ticket.price, unit: "RM") %></h5>
+  <%= link_to "Edit", edit_ticket_path(@ticket) %>
+  <%= link_to "Delete", ticket_path(@ticket), method: :delete, data: { confirm: "Delete?" } %>
+</div>
