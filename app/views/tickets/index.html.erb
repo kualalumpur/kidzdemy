@@ -1,0 +1,16 @@
+<h1>Tickets</h1>
+<div class="container">
+  <div class="row">
+    <% @tickets.each do |ticket| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+
+        <h3><%= link_to ticket.name, ticket_path(ticket) %></h3>
+        <h5><%= ticket.ttype %></h5>
+        <h5><%= ticket.quantity %></h5>
+        <h5><%= number_to_currency(ticket.price, unit: "RM") %></h5>
+
+      </div>
+    <% end %>
+    <%= link_to 'Create New Ticket', new_ticket_path(event_id: @event.id) %>
+  </div>
+</div>

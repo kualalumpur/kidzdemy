@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = Event.all.order('start')
   end
 
   def show
@@ -14,11 +14,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params) # current_user.events.build(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       flash[:success] = "You've created a new event."
-      redirect_to events_path
+      redirect_to new_ticket_path(event_id: @event.id) # events_path
     else
       flash[:danger] = @event.errors.full_messages
       redirect_to new_event_path
