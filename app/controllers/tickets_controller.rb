@@ -16,6 +16,12 @@ class TicketsController < ApplicationController
 
   def create
     @event = Event.find_by(id: params[:format])
+
+    if params[:ticket][:ttype] == "paid" && params[:ticket][:price].to_f <= 0
+      flash[:danger] = "You cannot create paid ticket without specifying a price."
+      redirect_to new_ticket_path(event_id: @event.id) and return
+    end
+
     @ticket = @event.tickets.build(ticket_params) # Ticket.new(ticket_params)
 
     if @ticket.save
@@ -34,9 +40,14 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find_by(id: params[:id])
 
+    if params[:ticket][:ttype] == "paid" && params[:ticket][:price].to_f <= 0
+      flash[:danger] = "You cannot create paid ticket without specifying a price."
+      redirect_to edit_ticket_path(@ticket) and return
+    end
+
     if @ticket.update(ticket_params)
       flash[:success] = "You've updated the ticket."
-      redirect_to ticket_path(@ticket)
+      redirect_to tickets_path(event_id: @ticket.event_id)
     else
       flash[:danger] = @ticket.errors.full_messages
       redirect_to edit_ticket_path(@ticket)

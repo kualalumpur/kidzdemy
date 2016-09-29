@@ -1,7 +1,17 @@
-<%= form_for(@ticket, url: tickets_path(event_id: @ticket.event_id), html: { id: "ticket-create-form" }) do |f| %>
+<%= form_for(@ticket, url: ticket_path(@ticket), html: { id: "ticket-create-form" }) do |f| %>
 <h1 class="text-center">
   Edit Ticket
 </h1>
+
+<div class="form-group">
+  <h4> <%= f.label :text_field, "Ticket Type" %> </h4>
+  <% if @ticket.ttype == 'paid' %>
+  <%= f.select :ttype, options_for_select([["Paid Ticket", :paid], ["Free Ticket", :free]]), required: true, class: 'form-control' %>
+</div>
+<% else %>
+<%= f.select :ttype, options_for_select([["Free Ticket", :free],["Paid Ticket", :paid]]), required: true, class: 'form-control' %>
+<% end %>
+</div>
 
 <div class="form-group">
   <h4> <%= f.label :text_field, "Ticket Name" %> </h4>
@@ -9,20 +19,18 @@
 </div>
 
 <div class="form-group">
-  <h4> <%= f.label :text_field, "Ticket Type" %> </h4>
-  <%= f.text_field :ttype, required: true, id: "ticket_type_field", class: 'form-control' %>
-</div>
-
-<div class="form-group">
-  <h4> <%= f.label :text_field, "Quantity available" %> </h4>
+  <h4> <%= f.label :text_field, "Quantity Available" %> </h4>
   <%= f.number_field :quantity, required: true, id: "ticket_type_field", class: 'form-control' %>
 </div>
 
-<div class="form-group">
-  <h4> <%= f.label :text_field, "Price" %> </h4>
-  <%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any, class: 'form-control' %>
+<% if @ticket.ttype == 'paid' %>
+<div class="form-group" id="ticket_price_field">
+<% else %>
+<div class="form-group" id="ticket_price_field" style="display:none;">
+<% end %>
+<h4> <%= f.label :text_field, "Price" %> </h4>
+<%= f.number_field :price, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any, class: 'form-control' %>
 </div>
-
 
 <div class="form-group text-center">
   <%= f.submit "Edit Ticket", class: "btn btn-success btn-lg" %>
@@ -30,3 +38,20 @@
 
 
 <% end %>
+
+
+<script language="JavaScript" type="text/javascript">
+$(document).ready(function(){
+  $('#ticket_ttype').on('change', function() {
+    if ( this.value ==="paid")
+    {
+      $("#ticket_price_field").show();
+    }
+    else
+    {
+      $("#ticket_price_field").hide();
+      $('#ticket_price').val("0.00");
+    }
+  });
+});
+</script>
