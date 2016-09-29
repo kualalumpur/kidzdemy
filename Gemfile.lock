@@ -249,6 +249,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mini_magick
+  minitest (~> 5.9)
   pg (~> 0.18)
   pry
   puma (~> 3.0)
@@ -267,4 +268,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.12.5
+   1.13.1

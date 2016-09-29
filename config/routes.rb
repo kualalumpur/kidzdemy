@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root to: 'landing#index'
   get :about, to: 'static_pages#about'
-
+  get :faq, to: 'static_pages#faq'
+  get :privacy, to: 'static_pages#privacy'
+  get :terms, to: 'static_pages#terms'
 
 end

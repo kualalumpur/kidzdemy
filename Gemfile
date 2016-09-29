@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
+
 ruby "2.3.1"
+
 gem 'rails_admin', '~> 1.0'
 gem 'carrierwave'
 gem "mini_magick"
@@ -37,6 +39,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass', '~> 4.6.2'
+gem 'minitest', '~> 5.9'
 
 
 group :development, :test do
