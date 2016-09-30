@@ -48,7 +48,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12 text-center">
         <div class="input-group input-group-lg">
           <input type="text" class="form-control SearchBar" placeholder="Search for...">
           <span class="input-group-btn">
@@ -62,61 +62,44 @@
   </div><!-- /.col-lg-6 -->
 
 
-
   <!-- Title -->
+  <section id="portfolio">
   <div class="container">
-
     <div class="row">
-      <div class="col-lg-12">
-        <h3>Events for you</h3>
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Events for you</h2>
+        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
       </div>
     </div>
     <!-- /.row -->
 
     <!-- Page Features -->
-    <div class="row text-center">
+    <div class="row">
 
-      <div class="col-md-4 col-sm-6 hero-feature">
+      <% @events.each do |event| %>
+      <div class="col-md-4 col-sm-6">
         <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
+          <% if event.image? %>
+          <%= image_tag event.image, size: '800x300', class: "img-settings img-responsive center-block" %>
+          <% else %>
+          <%= image_tag "800x300.png", size: '800x300', class: "img-settings img-responsive center-block" %>
+          <% end %>
           <div class="caption">
-            <h3 class="hellome">Bestsellers</h3>
-            <p>This year's top sellers</p>
+            <h5 style= "line-height: 40%; color: #757575"><%= event.start.strftime '%Y-%m-%d %H:%M:%S' %></h5>
+            <h4 style="font-family: Montserrat"><%= link_to event.title, event_path(event), class: "title-link" %></h4>
+            <p><%= event.venue %></p>
             <p>
-              <a href="#" class="btn btn-primary">Get Ticket</a> <a href="#" class="btn btn-default">More Info</a>
+            <%= link_to 'Get Ticket', new_ticket_path(event), class:"btn btn-primary" %>
+            <%= link_to 'More Info', event_path(event), class:"btn btn-primary" %>
             </p>
           </div>
         </div>
       </div>
-
-      <div class="col-md-4 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h3>What's Trending</h3>
-            <p>Hot books that are flying off our shelves</p>
-            <p>
-              <a href="#" class="btn btn-primary">Get Ticket</a> <a href="#" class="btn btn-default">More Info</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4 col-sm-6 hero-feature">
-        <div class="thumbnail">
-          <img src="http://placehold.it/800x500" alt="">
-          <div class="caption">
-            <h3>Just Arrived</h3>
-            <p>These books have just arrived on our shelves</p>
-            <p>
-              <a href="#" class="btn btn-primary">Get Ticket</a> <a href="#" class="btn btn-default">More Info</a>
-            </p>
-          </div>
-        </div>
-      </div>
+      <% end %>
 
     </div>
   </div>
+</section>
 
   <!-- Portfolio Grid Section -->
   <section id="portfolio" class="bg-light-gray">
