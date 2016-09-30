@@ -1,18 +1,37 @@
-<h1>Events</h1>
-<div class="container">
-  <div class="row">
-    <% @events.each do |event| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <% if event.image? %>
-        <%= image_tag event.image, size: '260x180', class: "img-settings img-responsive center-block" %>
-        <% else %>
-        <%= image_tag "lego_robotics.jpeg", size: '260x180', class: "img-settings img-responsive center-block" %>
-        <% end %>
-        <h5><%= event.start.strftime '%Y-%m-%d %H:%M:%S' %></h5>
-        <h3><%= link_to event.title, event_path(event) %></h3>
-        <h5><%= event.venue %></h5>
+<div class="event">
+
+  <div class="container">
+    <div class="row">
+      <p>
+        <h1>All Events For You</h1>
+      </p>
+
+      <% @events.each do |event| %>
+      <div class="row">
+        <div class="col-md-7">
+          <% if event.image? %>
+          <%= image_tag event.image, size: '800x300', class: "img-responsive" %>
+          <% else %>
+          <%= image_tag "800x300.png", size: '800x300', class: "img-responsive" %>
+          <% end %>
+        </div>
+        <div class="col-md-5">
+          <h5 style= "line-height: 40%; color: #757575"><%= event.start.strftime '%Y-%m-%d %H:%M:%S' %></h5>
+          <h4 style= "font-family: Montserrat"><%= link_to event.title, event_path(event), class: "title-link" %></h4>
+          <p><%= event.description %></p>
+          <p><%= event.venue %></p>
+          <p>
+            <%= link_to 'Get Ticket', new_ticket_path(event), class:"btn btn-primary" %>
+            <%= link_to 'More Info', event_path(event), class:"btn btn-primary" %>
+          </p>
+        </div>
       </div>
-    <% end %>
+
+      <hr>
+      <% end %>
+    </div>
+
     <%= paginate @events %>
+
   </div>
 </div>
