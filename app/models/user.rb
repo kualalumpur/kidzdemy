@@ -7,4 +7,5 @@ class User < ApplicationRecord
   enum role: [:user, :moderator, :admin]
   has_many :events
   has_many :comments
+  has_many :orders
 end

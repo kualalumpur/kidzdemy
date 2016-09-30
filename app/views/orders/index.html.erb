@@ -1,0 +1,13 @@
+<h1>Tickets</h1>
+<div class="container">
+  <div class="row">
+    <% @orders.each do |order| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <h5><%= order.ticket.name %></h5>
+        <h5><%= order.ticket.event.title %></h5>
+        <h5><%= order.ticket.event.start %></h5>
+        <h5><%= order.ticket.event.venue %></h5>
+      </div>
+    <% end %>
+  </div>
+</div>

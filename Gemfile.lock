@@ -45,6 +45,8 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    braintree (2.66.0)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (9.0.5)
     carrierwave (1.0.0.beta)
@@ -238,6 +240,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
+  braintree (~> 2.66.0)
   byebug
   carrierwave
   coffee-rails (~> 4.2)
@@ -247,6 +250,7 @@ DEPENDENCIES
   font-awesome-sass (~> 4.6.2)
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (~> 3.0.5)
   mini_magick
   minitest (~> 5.9)
