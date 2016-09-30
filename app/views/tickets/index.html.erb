@@ -8,7 +8,7 @@
         <h5><%= ticket.ttype %></h5>
         <h5><%= ticket.quantity %></h5>
         <h5><%= number_to_currency(ticket.price, unit: "RM") %></h5>
-
+        <%= link_to "Register", new_order_path(ticket) %>
         <%= link_to "Edit", edit_ticket_path(ticket) %>
         <%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Delete?" } %>
       </div>

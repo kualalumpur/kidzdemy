@@ -4,4 +4,5 @@ class Event < ApplicationRecord
   belongs_to :user
   belongs_to :category
   mount_uploader :image, ImageUploader
+  paginates_per 15
 end

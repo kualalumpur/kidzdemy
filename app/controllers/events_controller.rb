@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all.order('start')
+    @events = Event.where("start >= ?", [DateTime.now]).order('start').page params[:page]
   end
 
   def show
