@@ -6,12 +6,14 @@
   <div class="row">
     <table class="table">
       <tr>
+        <th>Order ID</th>
         <th>Participant Name</th>
         <th>Participant Email</th>
         <th>Ticket Name</th>
       </tr>
     <% @orders.each do |order| %>
     <tr>
+      <td><%= order.id %></td>
       <td><%= order.name %></td>
       <td><%= order.user.email %></td>
       <td><%= order.ticket.name %></td>
