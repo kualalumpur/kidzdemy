@@ -15,6 +15,6 @@ end
 
 3.times do |i|
   8.times do |j|
-  Event.create(title: "Event ##{j+1} Catchy Title", description: "This is an <strong>event description</strong>. We are trying to accommodate super long description, will have to check later <br /><br />if it supports HTML or just plain text", start: Time.new(2016,11,22, 12, 00), end: Time.new(2016,11,22, 18, 00), venue: "MaGIC Cyberjaya", organizer_name: "Petrosains Malaysia Super Inc", organizer_description: "This is <strong>organizer description</strong> with HTML <br /><br /> hahaha come visit us in KLCC", category_id: i+1, user_id: i+1)
+  Event.create(title: "Event ##{j+1} Catchy Title", description: "This is an <strong>event description</strong>. We are trying to accommodate super long description, will have to check later <br /><br />if it supports HTML or just plain text", start: Time.new(2016,11,22, 12, 00), end: Time.new(2016,11,22, 18, 00), address: "MaGIC Cyberjaya", organizer_name: "Petrosains Malaysia Super Inc", organizer_description: "This is <strong>organizer description</strong> with HTML <br /><br /> hahaha come visit us in KLCC", category_id: i+1, user_id: i+1)
   end
 end

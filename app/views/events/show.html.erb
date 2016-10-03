@@ -26,7 +26,8 @@
           <h5><%= @event.description.html_safe %></h5>
           <h5><%= @event.start.strftime '%Y-%m-%d %H:%M:%S' %></h5>
           <h5><%= @event.end.strftime '%Y-%m-%d %H:%M:%S' %></h5>
-          <h5><%= @event.venue %></h5>
+          <h5><%= @event.address %></h5>
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}" %>
           <h5><%= @event.organizer_name %></h5>
           <h5><%= @event.organizer_description.html_safe %></h5>
           <a href="#">Big Register Button</a>
