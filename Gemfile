@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "2.3.1"
+gem 'gon', '~> 5.1.2'
 gem 'kaminari'
 gem "braintree", "~> 2.66.0"
 gem 'rails_admin', '~> 1.0'
