@@ -1,11 +1,15 @@
 class EventsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @events = Event.where("start >= ?", [DateTime.now]).order('start').page params[:page]
   end
 
   def show
     @event = Event.find_by(id: params[:id])
+    @comments = Comment.where(event_id: @event.id)
+    @comment = Comment.new
   end
 
   def new
