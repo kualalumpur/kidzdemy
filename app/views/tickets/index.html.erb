@@ -1,18 +1,39 @@
-<h1>Tickets</h1>
-<div class="container">
-  <div class="row">
-    <% @tickets.each do |ticket| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
 
-        <h3><%= link_to ticket.name, ticket_path(ticket) %></h3>
-        <h5><%= ticket.ttype %></h5>
-        <h5><%= ticket.quantity - Order.where(ticket_id: ticket.id).size %></h5>
-        <h5><%= number_to_currency(ticket.price, unit: "RM") %></h5>
-        <%= link_to "Register", new_order_path(ticket) if ticket.quantity - Order.where(ticket_id: ticket.id).size > 0 %>
-        <%= link_to "Edit", edit_ticket_path(ticket) %>
-        <%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Delete?" } %>
+<div class= "event">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 well">
+        <h1>Select Tickets</h1>
+
+        <table class="table">
+          <tr>
+            <th>Ticket Name</th>
+            <th>Ticket Type</th>
+            <th>Ticket Quantity</th>
+            <th>Ticket Price</th>
+            <th>Action</th>
+          </tr>
+          <% @tickets.each do |ticket| %>
+          <tr>
+            <td><%= ticket.name %></td>
+            <td><%= ticket.ttype %></td>
+            <td><%= ticket.quantity - Order.where(ticket_id: ticket.id).size %></td>
+            <td><%= number_to_currency(ticket.price, unit: "RM") %></td>
+            <td><%= link_to "Register", new_order_path(ticket) if ticket.quantity - Order.where(ticket_id: ticket.id).size > 0, class:"btn btn-primary btn-register" %>
+              <%= link_to "Edit", edit_ticket_path(ticket), class:"btn btn-primary" %>
+              <%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Delete?" }, class:"btn btn-primary" %>
+            </td>
+          </tr>
+
+          <% end %>
+        </table>
       </div>
-    <% end %>
-    <%= link_to 'Create New Ticket', new_ticket_path(event_id: @event.id) %>
+
+      <div class="text-center">
+        <%= link_to 'Create New Ticket', new_ticket_path(event_id: @event.id), class:"btn btn-primary" %>
+      </div>
+
+    </div>
   </div>
 </div>
+<br />

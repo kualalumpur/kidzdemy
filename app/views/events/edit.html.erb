@@ -1,63 +1,76 @@
-<%= form_for(@event, url: event_path(@event), html: { id: "event-update-form" }) do |f| %>
-  <h1 class="text-center">
-    Edit Event
-  </h1>
+<div class= "event">
 
-  <div class="form-group">
-    <h4> <%= f.label :text_field, "Event Title" %> </h4>
-    <%= f.text_field :title, required: true, id: "event_title_field", class: 'form-control' %>
-  </div>
 
-  <div class="form-group">
-    <h4> <%= f.label :text_field, "Location" %> </h4>
-    <%= f.text_field :address, required: true, id: "event_venue_field", class: 'form-control' %>
-  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 well">
 
-  <div class="form-group">
-    <h4> <%= f.label :text_field, "Starts" %> </h4>
-    <%= f.datetime_select :start, required: true, id: "event_start_field", class: 'form-control' %>
-  </div>
 
-  <div class="form-group">
-    <h4> <%= f.label :text_field, "Ends" %> </h4>
-    <%= f.datetime_select :end, required: true, id: "event_end_field", class: 'form-control' %>
-  </div>
+        <%= form_for(@event, url: event_path(@event), html: { id: "event-update-form" }) do |f| %>
+        <h1 class="text-center">
+          Edit Event
+        </h1>
 
-  <div class="form-group">
-    <h4 class="text-center"> Event Image </h4>
-    <div id="preview-image">
-      <% if @event.image? %>
-      <%= image_tag @event.image, class: "img-settings img-responsive center-block" %>
-      <% end %>
+        <div class="form-group">
+          <h4> <%= f.label :text_field, "Event Title" %> </h4>
+          <%= f.text_field :title, required: true, maxlength: "50", id: "event_title_field", class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <h4> <%= f.label :text_field, "Location" %> </h4>
+          <%= f.text_field :address, required: true, id: "event_venue_field", class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <h4> <%= f.label :text_field, "Starts" %> </h4>
+          <%= f.datetime_select :start, required: true, id: "event_start_field", class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <h4> <%= f.label :text_field, "Ends" %> </h4>
+          <%= f.datetime_select :end, required: true, id: "event_end_field", class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <h4 class="text-center"> Event Image </h4>
+          <div id="preview-image">
+            <% if @event.image? %>
+            <%= image_tag @event.image, class: "img-settings img-responsive center-block" %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.file_field :image, id: "event_image_field", class: 'form-control image-uploader' %>
+        </div>
+
+        <div class="form-group">
+          <h4> <%= f.label :text_area, "Description" %>
+            <%= f.text_area :description, rows: 10, id: "event_description_field", class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <h4> <%= f.label :text_field, "Event Category" %> </h4>
+            <%= f.collection_select :category_id, @categories, :id, :name, include_blank: false %>
+          </div>
+
+          <div class="form-group">
+            <h4> <%= f.label :text_field, "Organizer Name" %> </h4>
+            <%= f.text_field :organizer_name, id: "event_organizer_name_field", class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <h4> <%= f.label :text_area, "Organizer Description" %> </h4>
+            <%= f.text_area :organizer_description, rows: 5, id: "event_organizer_description_field", class: 'form-control' %>
+          </div>
+
+          <div class="form-group text-center">
+            <%= link_to "Back", :back, class:"btn btn-primary" %>
+            <%= f.submit "Update Event", class: "btn btn-primary" %>
+          </div>
+          <% end %>
+
+        </div>
+      </div>
     </div>
   </div>
-
-  <div class="form-group">
-    <%= f.file_field :image, id: "event_image_field", class: 'form-control image-uploader' %>
-  </div>
-
-  <div class="form-group">
-    <h4> <%= f.label :text_field, "Description" %> </h4>
-    <%= f.text_field :description, id: "event_description_field", class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <h4> <%= f.label :text_field, "Event Category" %> </h4>
-    <%= f.collection_select :category_id, @categories, :id, :name, include_blank: false %>
-  </div>
-
-
-  <div class="form-group">
-    <h4> <%= f.label :text_field, "Organizer Name" %> </h4>
-    <%= f.text_field :organizer_name, id: "event_organizer_name_field", class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <h4> <%= f.label :text_field, "Organizer Description" %> </h4>
-    <%= f.text_field :organizer_description, id: "event_organizer_description_field", class: 'form-control' %>
-  </div>
-
-  <div class="form-group text-center">
-    <%= f.submit "Update Event", class: "btn btn-success btn-lg" %>
-  </div>
-<% end %>

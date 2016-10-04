@@ -43,6 +43,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass', '~> 4.6.2'
 gem 'minitest', '~> 5.9'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do

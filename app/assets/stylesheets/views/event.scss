@@ -71,7 +71,7 @@
   // Restyled Primary Buttons
 
   .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+    @include button-variant(#5D6D7E, $theme-primary, $theme-primary);
     @include heading-font;
     font-weight: 700;
   }
@@ -108,6 +108,24 @@
       padding: 9px;
       color: #333;
   }
+
+  .linenarrow {
+    line-height: 80%;
+  }
+
+  .btn-register {
+    background-color: #2ECC71;
+    color:#fff;
+  }
+
+  .form-group.required .control-label:after {
+      color: red;
+      content: "a";
+      // position: absolute;
+      // margin-left: 8px;
+      // top:7px;
+}
+
 
 
 }

@@ -100,7 +100,7 @@
   // Restyled Primary Buttons
 
   .btn-primary {
-    @include button-variant(white, $theme-primary, $theme-primary);
+    @include button-variant(#5D6D7E, $theme-primary, $theme-primary);
     @include heading-font;
     font-weight: 700;
   }
