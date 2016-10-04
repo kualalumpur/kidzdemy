@@ -16,7 +16,16 @@
 				<li>
 					<a href="/events" class = "header-title">Browse Events</a>
 				</li>
-			</ul>
+
+			<li>
+				<%= form_tag root_path, class: "navbar-search navbar-form", method: :get do %>
+				<%= label_tag(:query, "") %>
+				<%= text_field_tag(:query, @query, placeholder: "Search for events") %>
+				<i class="icon-search"></i>
+				<% end %>
+			</li>
+		</ul>
+
 
 			<ul class="nav navbar-nav navbar-right">
 
