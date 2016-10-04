@@ -21,6 +21,11 @@
 			<ul class="nav navbar-nav navbar-right">
 
 				<% if current_user %>
+
+				<li>
+					<%= link_to "Create Event", new_event_path, class: "header-title" %>
+				</li>
+
 				<li>
 					<%= link_to current_user.email, edit_user_registration_path, class: "header-title" %>
 				</li>
