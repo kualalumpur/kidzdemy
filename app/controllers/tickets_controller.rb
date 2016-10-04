@@ -37,11 +37,12 @@ class TicketsController < ApplicationController
 
   def edit
     @ticket = Ticket.find_by(id: params[:id])
+    authorize! :edit, @ticket
   end
 
   def update
     @ticket = Ticket.find_by(id: params[:id])
-
+    authorize! :update, @ticket
     if params[:ticket][:ttype] == "paid" && params[:ticket][:price].to_f <= 0
       flash[:danger] = "You cannot create paid ticket without specifying a price."
       redirect_to edit_ticket_path(@ticket) and return
@@ -58,6 +59,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket = Ticket.find_by(id: params[:id])
+    authorize! :destroy, @ticket
     if @ticket.destroy
       flash[:success] = "You've deleted the ticket."
       redirect_to tickets_path(event_id: @ticket.event_id)
