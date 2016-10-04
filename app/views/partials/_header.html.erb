@@ -18,11 +18,10 @@
 				</li>
 
 			<li>
-				<%= form_tag root_path, class: "navbar-search navbar-form", method: :get do %>
-				<%= label_tag(:query, "") %>
-				<%= text_field_tag(:query, @query, placeholder: "Search for events") %>
-				<i class="icon-search"></i>
-				<% end %>
+        <%= form_tag(categories_path, method: "get", id: "search-form", class: "navbar-search navbar-form") do %>
+        <%= search_field_tag :search, params[:search], placeholder: "Search for events..." %>
+        <i class="icon-search"></i>
+        <% end %>
 			</li>
 		</ul>
 
