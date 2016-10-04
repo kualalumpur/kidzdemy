@@ -33,12 +33,13 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find_by(id: params[:id])
+    authorize! :edit, @event
     @categories = Category.all
   end
 
   def update
     @event = Event.find_by(id: params[:id])
-
+    authorize! :update, @event
     if @event.update(event_params)
       flash[:success] = "You've updated the event."
       redirect_to event_path(@event)
@@ -50,6 +51,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find_by(id: params[:id])
+    authorize! :destroy, @event
     if @event.destroy
       flash[:success] = "You've deleted the event."
       redirect_to events_path
