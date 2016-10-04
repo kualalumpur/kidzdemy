@@ -6,7 +6,7 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.datetime :start
       t.datetime :end
       t.string :image
-      t.string :venue
+      t.string :address
       t.string :organizer_name
       t.string :organizer_description
       t.integer :category_id

@@ -1,5 +1,7 @@
 class TicketsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @tickets = Ticket.where(event_id: params[:event_id])
     @event = Event.find_by(id: params[:event_id])

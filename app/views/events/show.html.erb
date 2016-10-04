@@ -20,6 +20,7 @@
           <p><%= @event.description.html_safe %></p>
         </div>
 
+
         <div class="col-md-4">
           <%= link_to 'REGISTER', tickets_path(event_id: @event.id), class:"btn btn-primary btn-lg btn-block btn-register" %>
           </br>
@@ -32,7 +33,8 @@
           <h5 style= "line-height: 30%"><%= @event.end.strftime '%I:%M %P' %></h5>
           </br>
           <p>VENUE:</p>
-          <h5><%= @event.venue %></h5>
+          <h5><%= @event.address %></h5>
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}" %>
           </br>
           <p>ORGANIZER:</p>
           <h5><%= @event.organizer_name %></h5>
@@ -47,3 +49,27 @@
     </div>
   </div>
 </div>
+
+
+<% @comments.each do |comment| %>
+<div>
+  <%= comment.body %>
+  <%= link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Delete?" } %>
+</div>
+<% end %>
+<%= form_for(@comment, url: comments_path(event_id: @event.id), method: :post, html: { id: "comment-create-form"}) do |f| %>
+<h1 class="text-center">
+Create Comment
+</h1>
+
+
+<div class="form-group">
+<h4> <%= f.label :body_field, "Body" %> </h4>
+<%= f.text_field :body, required: true, id: "comment_body_field", class: 'form-control' %>
+</div>
+
+<div class="form-group text-center">
+<%= f.submit "Create Comment", class: "btn btn-success btn-lg" %>
+</div>
+
+<% end %>

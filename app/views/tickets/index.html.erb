@@ -1,3 +1,4 @@
+
 <div class= "event">
   <div class="container">
     <div class="row">
@@ -16,9 +17,9 @@
           <tr>
             <td><%= ticket.name %></td>
             <td><%= ticket.ttype %></td>
-            <td><%= ticket.quantity %></td>
+            <td><%= ticket.quantity - Order.where(ticket_id: ticket.id).size %></td>
             <td><%= number_to_currency(ticket.price, unit: "RM") %></td>
-            <td><%= link_to "Register", new_order_path(ticket), class:"btn btn-primary btn-register" %>
+            <td><%= link_to "Register", new_order_path(ticket) if ticket.quantity - Order.where(ticket_id: ticket.id).size > 0, class:"btn btn-primary btn-register" %>
               <%= link_to "Edit", edit_ticket_path(ticket), class:"btn btn-primary" %>
               <%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Delete?" }, class:"btn btn-primary" %>
             </td>
@@ -35,32 +36,4 @@
     </div>
   </div>
 </div>
-</br>
-
-
-
-
-
-
-<!--
-
-
-
-<h1>Tickets</h1>
-<div class="container">
-<div class="row">
-<% @tickets.each do |ticket| %>
-<div class="col-xs-12 col-sm-6 col-md-4">
-
-<h3><%= link_to ticket.name, ticket_path(ticket) %></h3>
-<h5><%= ticket.ttype %></h5>
-<h5><%= ticket.quantity %></h5>
-<h5><%= number_to_currency(ticket.price, unit: "RM") %></h5>
-<%= link_to "Register", new_order_path(ticket) %>
-<%= link_to "Edit", edit_ticket_path(ticket) %>
-<%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Delete?" } %>
-</div>
-<% end %>
-<%= link_to 'Create New Ticket', new_ticket_path(event_id: @event.id) %>
-</div>
-</div> -->
+<br />

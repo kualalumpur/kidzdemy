@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     # @events = Event.where("start >= ?", [DateTime.now]).order('start').page params[:page]
     @events = Event.order("created_at desc").page params[:page]
@@ -8,6 +10,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    @comments = Comment.where(event_id: @event.id)
+    @comment = Comment.new
   end
 
   def new
@@ -58,7 +62,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :image, :venue, :start, :end, :organizer_name, :organizer_description, :category_id, :user_id)
+    params.require(:event).permit(:title, :description, :image, :address, :start, :end, :organizer_name, :organizer_description, :category_id, :user_id)
   end
 
 end

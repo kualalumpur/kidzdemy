@@ -1,0 +1,10 @@
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
+<div class="form-container radius-box glassy-bg small-10 small-centered medium-8 large-6 columns">
+  <h2 class="mbs">New Transaction</h2>
+  <%= form_tag transactions_path(@order) do%>
+    <p>Please enter your payment details:</p>
+    <div id="dropin"></div>
+    <%=submit_tag "Pay #{number_to_currency(@order.ticket.price, unit: "RM")}", class: "button mt1" %>
+  <%end%>
+</div>

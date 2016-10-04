@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_action :authenticate_user!
+
   def index
     @orders = Order.where(user_id: current_user.id)
   end
@@ -19,8 +21,12 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
 
     if @order.save
-      flash[:success] = "You've registered a new ticket."
-      redirect_to orders_path # orders_path
+      if @order.ticket.price <= 0.0
+        flash[:success] = "You've registered a new ticket."
+        redirect_to orders_path
+      else
+        redirect_to new_transaction_path(@order)
+      end
     else
       flash[:danger] = @order.errors.full_messages
       redirect_to new_order_path
