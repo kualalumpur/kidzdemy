@@ -23,8 +23,12 @@
             <% if ticket.quantity - Order.where(ticket_id: ticket.id).size > 0 %>
               <%= link_to "Register", new_order_path(ticket), class:"btn btn-primary btn-register" %>
             <% end %>
+            <% if can? :edit, ticket %>
               <%= link_to "Edit", edit_ticket_path(ticket), class:"btn btn-primary" %>
+            <% end %>
+            <% if can? :destroy, ticket %>
               <%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Delete?" }, class:"btn btn-primary" %>
+            <% end %>
             </td>
           </tr>
 
