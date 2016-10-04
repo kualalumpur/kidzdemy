@@ -46,20 +46,39 @@
     <hr>
   </div>
 
+
+
+  <div class="container">
+    <div class="row">
+    <% @categories.each do |category| %>
+      <div>
+        <%= link_to category.name, category_path(category) %>
+        <%= category.description %>
+        <%= category.image %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
+        <%= form_tag(categories_path, method: "get", id: "search-form", class: "center-align center-block") do %>
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control SearchBar" placeholder="Search for...">
+          <%= search_field_tag :search, params[:search], placeholder: "Search for events...", class: "form-control SearchBar" %>
           <span class="input-group-btn">
             <button class="btn btn-defaul SearchButton" type="button">
               <span class=" glyphicon glyphicon-search SearchIcon" ></span>
             </button>
           </span>
         </div>
+        <% end %>
       </div>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
+
+
 
 
   <!-- Title -->
