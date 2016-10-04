@@ -1,24 +1,36 @@
-<h1>Attendee List for <%= @event.title %></h1>
-<h5><%= @event.start %></h5>
-<h5><%= @event.address %></h5>
+<div class= "event">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 well">
 
-<div class="container">
-  <div class="row">
-    <table class="table">
-      <tr>
-        <th>Order ID</th>
-        <th>Participant Name</th>
-        <th>Participant Email</th>
-        <th>Ticket Name</th>
-      </tr>
-    <% @orders.each do |order| %>
-    <tr>
-      <td><%= order.id %></td>
-      <td><%= order.name %></td>
-      <td><%= order.user.email %></td>
-      <td><%= order.ticket.name %></td>
-    </tr>
-    <% end %>
-    </table>
+        <h1>Attendee List for <%= @event.title %></h1>
+        <h5><%= @event.start.strftime '%a, %B %d, %Y, %I:%M %P' %></h5>
+        <h5><%= @event.address %></h5>
+
+        <table class="table">
+          <tr>
+            <th>Ticket Number</th>
+            <th>Participant Name</th>
+            <th>Participant Email</th>
+            <th>Ticket Name</th>
+            <th>Ticket Price</th>
+          </tr>
+          <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= order.name %></td>
+            <td><%= order.user.email %></td>
+            <td><%= order.ticket.name %></td>
+            <td><%= number_to_currency(order.ticket.price, unit: "RM") %></td>
+          </tr>
+          <% end %>
+        </table>
+
+        <div class="text-center">
+          <%= link_to "Back", :back, class:"btn btn-primary" %>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>

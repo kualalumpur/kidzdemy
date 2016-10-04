@@ -23,53 +23,77 @@
 
         <div class="col-md-4">
           <%= link_to 'REGISTER', tickets_path(event_id: @event.id), class:"btn btn-primary btn-lg btn-block btn-register" %>
-          </br>
+          <br />
           <p>START:</p>
           <h5><%= @event.start.strftime '%a, %B %d, %Y' %></h5>
           <h5 style= "line-height: 30%"><%= @event.start.strftime '%I:%M %P' %></h5>
-          </br>
+          <br />
           <p>END:</p>
           <h5><%= @event.end.strftime '%a, %B %d, %Y' %></h5>
           <h5 style= "line-height: 30%"><%= @event.end.strftime '%I:%M %P' %></h5>
-          </br>
+          <br />
           <p>VENUE:</p>
           <h5><%= @event.address %></h5>
           <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}" %>
-          </br>
+          <br />
           <p>ORGANIZER:</p>
           <h5><%= @event.organizer_name %></h5>
           <p><%= @event.organizer_description.html_safe %></p>
-          </br>
+          <br />
           <%= link_to "Attendee List", order_path, class:"btn btn-primary" %>
           <%= link_to "Edit", edit_event_path(@event), class:"btn btn-primary" %>
-          <%= link_to "View ticket", edit_event_path(@event), class:"btn btn-primary" %>
+          <%= link_to "View ticket", tickets_path(event_id: @event.id), class:"btn btn-primary" %>
           <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Delete?" }, class:"btn btn-primary" %>
         </div>
       </div>
     </div>
   </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="page-header">
+          <h1> Comments </h1>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+
+              <div class="form-inline">
+                <%= form_for(@comment, url: comments_path(event_id: @event.id), method: :post, html: { id: "comment-create-form"}) do |f| %>
+                <div class="form-group">
+                  <%= f.text_field :body, required: true, size: "100", placeholder: "Add a comment", id: "comment_body_field", class: 'form-control' %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.submit "Add", class: "btn btn-default" %>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+
+              <div class="comments-list">
+                <% @comments.each do |comment| %>
+                <div>
+                  <%= comment.body %>
+                  <%= link_to "Delete", comment_path(comment), class: "pull-right", method: :delete, data: { confirm: "Delete?" } %> <hr>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-<% @comments.each do |comment| %>
-<div>
-  <%= comment.body %>
-  <%= link_to "Delete", comment_path(comment), method: :delete, data: { confirm: "Delete?" } %>
-</div>
-<% end %>
-<%= form_for(@comment, url: comments_path(event_id: @event.id), method: :post, html: { id: "comment-create-form"}) do |f| %>
-<h1 class="text-center">
-Create Comment
-</h1>
-
-
-<div class="form-group">
-<h4> <%= f.label :body_field, "Body" %> </h4>
-<%= f.text_field :body, required: true, id: "comment_body_field", class: 'form-control' %>
-</div>
-
-<div class="form-group text-center">
-<%= f.submit "Create Comment", class: "btn btn-success btn-lg" %>
-</div>
-
-<% end %>
