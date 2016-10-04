@@ -47,7 +47,7 @@
           <% if can? :edit, @event %>
             <%= link_to "Edit", edit_event_path(@event), class:"btn btn-primary" %>
           <% end %>
-          <% if can? :delete, @event %>
+          <% if can? :destroy, @event %>
             <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Delete?" }, class:"btn btn-primary" %>
           <% end %>
         </div>
@@ -91,8 +91,7 @@
               <div class="comments-list">
                 <% @comments.each do |comment| %>
                 <div>
-                  <%= comment.body %>
-                  <%= link_to "Delete", comment_path(comment), class: "pull-right", method: :delete, data: { confirm: "Delete?" } %> <hr>
+                  <%= comment.body %>  
                 </div>
                 <% end %>
               </div>

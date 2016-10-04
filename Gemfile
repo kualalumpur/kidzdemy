@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby "2.3.1"
+gem 'searchkick'
 gem "cancancan"
 gem 'geocoder'
 gem 'gon', '~> 5.1.2'

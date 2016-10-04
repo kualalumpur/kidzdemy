@@ -1,0 +1,37 @@
+<div class="event">
+
+  <div class="container">
+    <div class="row">
+      <p>
+        <h1>All Events For You</h1>
+      </p>
+
+      <% @events.each do |event| %>
+      <div class="row">
+        <div class="col-md-7">
+          <% if event.image? %>
+          <%= image_tag event.image, size: '800x300', class: "img-responsive" %>
+          <% else %>
+          <%= image_tag "800x300.png", size: '800x300', class: "img-responsive" %>
+          <% end %>
+        </div>
+        <div class="col-md-5">
+          <h5 style= "line-height: 40%; color: #757575"><%= event.start.strftime '%Y-%m-%d %H:%M:%S' %></h5>
+          <h4 style= "font-family: Montserrat"><%= link_to event.title, event_path(event), class: "title-link" %></h4>
+          <p><%= event.description.first(120) %></p>
+          <p><%= event.address %></p>
+          <p>
+            <%= link_to 'Get Ticket', tickets_path(event_id: event.id), class:"btn btn-primary" %>
+            <%= link_to 'More Info', event_path(event), class:"btn btn-primary" %>
+          </p>
+        </div>
+      </div>
+
+      <hr>
+      <% end %>
+    </div>
+
+    <%= paginate @events %>
+
+  </div>
+</div>
