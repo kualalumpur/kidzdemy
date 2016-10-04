@@ -91,7 +91,7 @@
             <p><%= event.address %></p>
 
             <p>
-            <%= link_to 'Get Ticket', new_ticket_path(event), class:"btn btn-primary" %>
+            <%= link_to 'Get Ticket', tickets_path(event_id: event.id), class:"btn btn-primary" %>
             <%= link_to 'More Info', event_path(event), class:"btn btn-primary" %>
             </p>
           </div>

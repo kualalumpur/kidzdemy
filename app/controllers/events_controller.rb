@@ -3,8 +3,8 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   def index
-    # @events = Event.where("start >= ?", [DateTime.now]).order('start').page params[:page]
-    @events = Event.order("created_at desc").page params[:page]
+    @events = Event.where("start >= ?", [DateTime.now]).order('start').page params[:page]
+    # @events = Event.order("created_at desc").page params[:page]
 
   end
 

@@ -19,7 +19,10 @@
             <td><%= ticket.ttype %></td>
             <td><%= ticket.quantity - Order.where(ticket_id: ticket.id).size %></td>
             <td><%= number_to_currency(ticket.price, unit: "RM") %></td>
-            <td><%= link_to "Register", new_order_path(ticket) if ticket.quantity - Order.where(ticket_id: ticket.id).size > 0, class:"btn btn-primary btn-register" %>
+            <td>
+            <% if ticket.quantity - Order.where(ticket_id: ticket.id).size > 0 %>
+              <%= link_to "Register", new_order_path(ticket), class:"btn btn-primary btn-register" %>
+            <% end %>
               <%= link_to "Edit", edit_ticket_path(ticket), class:"btn btn-primary" %>
               <%= link_to "Delete", ticket_path(ticket), method: :delete, data: { confirm: "Delete?" }, class:"btn btn-primary" %>
             </td>
