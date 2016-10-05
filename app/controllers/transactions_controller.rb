@@ -15,6 +15,7 @@ class TransactionsController < ApplicationController
       @order.status = 1
       @order.save
       flash[:success] = "Congratulations, your transaction has been successful!"
+      OrderMailer.sample_email(current_user, @order).deliver
       redirect_to orders_path
     else
       flash[:danger] = @result.errors.full_messages
