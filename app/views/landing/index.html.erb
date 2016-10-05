@@ -89,6 +89,7 @@
           <% end %>
 
           <div class="caption">
+            <h5 style= "line-height: 40%; color: #757575"><%= event.start.strftime '%a, %b %d, %Y, %I:%M %P' %></h5>
             <h4 style= "font-family: Montserrat"><%= link_to event.title, event_path(event), class: "title-link" %></h4>
             <p><%= event.address %></p>
 
