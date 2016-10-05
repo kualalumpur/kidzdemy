@@ -1,0 +1,10 @@
+Hello,
+
+This email is to confirm your ticket booking.
+
+<%= @order.ticket.event.title %>
+When: <%= @order.ticket.event.start %>
+Where: <%= @order.ticket.event.address %>
+Ticket Number: <%= @order.id %>
+Ticket Bought: <%= @order.ticket.name %>
+Name on Ticket: <%= @order.name %>

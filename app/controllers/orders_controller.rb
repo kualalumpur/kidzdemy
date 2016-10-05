@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
     if @order.save
       if @order.ticket.price <= 0.0
         flash[:success] = "You've registered a new ticket."
+        OrderMailer.sample_email(current_user, @order).deliver
         redirect_to orders_path
       else
         redirect_to new_transaction_path(@order)

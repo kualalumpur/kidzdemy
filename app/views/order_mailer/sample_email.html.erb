@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <p>
+      This email is to confirm your ticket booking.
+    </p>
+    <h1><%= @order.ticket.event.title %></h1>
+    <h4>When: <%= @order.ticket.event.start %></h4>
+    <h4>Where: <%= @order.ticket.event.address %></h4>
+    <h4>Ticket Number: <%= @order.id %></h4>
+    <h4>Ticket Bought: <%= @order.ticket.name %></h4>
+    <h4>Name on Ticket: <%= @order.name %></h4>
+  </body>
+</html>
