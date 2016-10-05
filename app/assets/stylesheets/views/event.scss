@@ -91,22 +91,22 @@
   }
 
   .thumbnail img {
-      width: 100%;
+    width: 100%;
   }
 
   .ratings {
-      padding-right: 10px;
-      padding-left: 10px;
-      color: #d17581;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
   }
 
   .thumbnail {
-      padding: 0;
+    padding: 0;
   }
 
   .thumbnail .caption-full {
-      padding: 9px;
-      color: #333;
+    padding: 9px;
+    color: #333;
   }
 
   .linenarrow {
@@ -119,14 +119,11 @@
   }
 
   .form-group.required .control-label:after {
-      color: red;
-      content: "a";
-      // position: absolute;
-      // margin-left: 8px;
-      // top:7px;
-}
-
-
-
+    color: red;
+    content: "a";
+    // position: absolute;
+    // margin-left: 8px;
+    // top:7px;
+  }
 
 }

@@ -17,14 +17,15 @@
 					<a href="/events" class = "header-title">Browse Events</a>
 				</li>
 
-			<li>
-        <%= form_tag(categories_path, method: "get", id: "search-form", class: "navbar-search navbar-form") do %>
-        <%= search_field_tag :search, params[:search], placeholder: "Search for events..." %>
-        <i class="icon-search"></i>
-        <% end %>
-			</li>
-		</ul>
-
+				<li>
+					<%= form_tag(categories_path, method: "get", id: "search-form", class: "navbar-search navbar-form") do %>
+					<span class="inner-addon right-addon enjoy-cssx">
+						<%= search_field_tag :search, params[:search], placeholder: "Search for events...", class: "form-control enjoy-css" %>
+						<span class="glyphicon glyphicon-search"></span>
+					</span>
+					<% end %>
+				</li>
+			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 
