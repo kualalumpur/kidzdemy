@@ -91,7 +91,12 @@
               <div class="comments-list">
                 <% @comments.each do |comment| %>
                 <div>
-                  <%= comment.body %>  
+                  <% if comment.user_id == @event.user_id %>
+                  <strong>Event Organizer:</strong> 
+                  <% else %>
+                  <strong>Event Participant:</strong>
+                  <% end %>
+                  <%= comment.body %>
                 </div>
                 <% end %>
               </div>
