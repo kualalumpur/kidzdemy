@@ -54,7 +54,7 @@
         <div class="input-group input-group-lg">
           <%= search_field_tag :search, params[:search], placeholder: "Search for events...", class: "form-control SearchBar" %>
           <span class="input-group-btn">
-            <button class="btn btn-defaul SearchButton" type="button">
+            <button class="btn btn-default SearchButton" type="button">
               <span class=" glyphicon glyphicon-search SearchIcon" ></span>
             </button>
           </span>
@@ -87,10 +87,9 @@
           <% else %>
           <%= image_tag "800x300.png", size: '800x300', class: "img-settings img-responsive center-block" %>
           <% end %>
-          <div class="caption">
 
-            <h5 style= "line-height: 40%; color: #757575"><%= event.start.strftime '%Y-%m-%d %H:%M:%S' %></h5>
-            <h4 style="font-family: Montserrat"><%= link_to event.title, event_path(event), class: "title-link" %></h4>
+          <div class="caption">
+            <h4 style= "font-family: Montserrat"><%= link_to event.title, event_path(event), class: "title-link" %></h4>
             <p><%= event.address %></p>
 
             <p>
