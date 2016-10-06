@@ -10,7 +10,7 @@ flashMessagesFunctions = () ->
     , 3000)
     setTimeout( ()->
       $('#flash-messages-container').html("")
-    , 8000)
+    , 3000)
 
   flashMessagesObserver = new MutationObserver () ->
     clearFlashMessages()

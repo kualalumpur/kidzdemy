@@ -34,18 +34,15 @@
           <br />
           <p>VENUE:</p>
           <h5><%= @event.address %></h5>
-          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@event.latitude}%2C#{@event.longitude}" %>
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&key=AIzaSyAPzk5PIZVjPAEFHdSdwT-W1u9CrdHnOf0&markers=#{@event.latitude}%2C#{@event.longitude}" %>
           <br />
           <p>ORGANIZER:</p>
           <h5><%= @event.organizer_name %></h5>
           <p><%= @event.organizer_description.html_safe %></p>
           <br />
-          <% if @event.user_id == current_user.id %>
-            <%= link_to "View ticket", tickets_path(event_id: @event.id), class:"btn btn-primary" %>
-            <%= link_to "Attendee List", order_path, class:"btn btn-primary" %>
-          <% end %>
           <% if can? :edit, @event %>
             <%= link_to "Edit", edit_event_path(@event), class:"btn btn-primary" %>
+            <%= link_to "Attendee List", order_path, class:"btn btn-primary" %>
           <% end %>
           <% if can? :destroy, @event %>
             <%= link_to "Delete", event_path(@event), method: :delete, data: { confirm: "Delete?" }, class:"btn btn-primary" %>
@@ -92,7 +89,7 @@
                 <% @comments.each do |comment| %>
                 <div>
                   <% if comment.user_id == @event.user_id %>
-                  <strong>Event Organizer:</strong> 
+                  <strong>Event Organizer:</strong>
                   <% else %>
                   <strong>Event Participant:</strong>
                   <% end %>

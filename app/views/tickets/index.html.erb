@@ -35,7 +35,7 @@
           <% end %>
         </table>
       </div>
-      <% if @event.user_id == current_user.id %>
+      <% if can? :edit, @event %>
         <div class="text-center">
           <%= link_to 'Create New Ticket', new_ticket_path(event_id: @event.id), class:"btn btn-primary" %>
         </div>
