@@ -36,6 +36,8 @@
           <h5><%= @event.address %></h5>
           <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&key=AIzaSyAPzk5PIZVjPAEFHdSdwT-W1u9CrdHnOf0&markers=#{@event.latitude}%2C#{@event.longitude}" %>
           <br />
+          <br />
+
           <p>ORGANIZER:</p>
           <h5><%= @event.organizer_name %></h5>
           <p><%= @event.organizer_description.html_safe %></p>
@@ -94,6 +96,7 @@
                   <strong>Event Participant:</strong>
                   <% end %>
                   <%= comment.body %>
+                  <hr>
                 </div>
                 <% end %>
               </div>
